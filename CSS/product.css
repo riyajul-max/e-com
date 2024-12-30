@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color: #00bbd3;
+    --secondary-color: #212121;
+    --button-color: #0c490c;
+}
+
+body {
+    background-color: #eee;
+}
+
+.product {
+    margin:0 auto;
+    max-width: 1200px;
+    padding: 3rem 0;
+}
+
+.product-box {
+    
+    /* max-height: 100vh; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* gap: 6rem; */
+    overflow: hidden;
+}
+
+.p-main-image {
+    align-content: center;
+    min-width: 40%;
+    width: 40%;
+    /* height: 60vh; */
+    min-height: 60vh;
+    overflow: hidden;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+   text-align: center;
+   background-color: white;
+   border: 2px solid rgba(0,0,0,0.1);
+   border-radius: 4px;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+
+.p-main-image img {
+
+    padding: 10px;
+    object-fit: cover;
+    background-position: center;
+    width: 60%;
+    background-color: white;
+}
+
+.s-img-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.s-img-col {
+    /* flex-basis: 24%; */
+    cursor: pointer;
+}
+
+.s-img-col img {
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    transition: 0.3s;
+
+}
+
+.s-img-col:hover img{
+    transform: scale(.8);
+}
+
+.p-info {
+    width: 50%;
+}
+
+.p-ratings {
+    display: flex;
+    gap: .50rem;
+    padding-bottom: .25rem;
+    font-size: 1.2rem;
+}
+
+.p-ratings h4 {
+    font-size: 1rem;
+    color: #777;
+    padding-bottom: 1rem;
+}
+
+
+#title {
+    font-size: 2rem;
+    color: rgb(39, 39, 39);
+}
+
+#price {
+    color: rgb(59, 57, 57);
+    font-size: 26px;
+}
+
+.p-info h2 {
+    padding: 1rem 0;
+    /* font-size: 1.8rem; */
+}
+
+.p-info h5 {
+    color: #777;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+}
+
+.sizes {
+    display: flex;
+    gap: .20rem;
+}
+
+
+.sizes p {
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: .50rem;
+   height: 40px;
+   width: 40px;
+   border: 2px solid black;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: .8rem;
+}
+
+.buttons {
+    padding: 2rem 0;
+    display: flex;
+    width: 100%;
+}
+
+.buttons input {
+    cursor: pointer;
+    width: 10%;
+    padding: 8px 0;
+    text-align: center;
+    border: 2px solid black;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    font-size: .8rem;
+}
+
+
+.buttons button {
+    cursor: pointer;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border: 2px solid black;
+    width: 40%;
+    padding: 8px 0;
+    border-left: none;
+    background-color: var(--button-color);
+    color: white;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.p-info #p-d {
+    padding-bottom: .3rem;
+}
+
+.p-info span {
+    line-height: 22px;
+    color: #777;
+    font-size: 12pt;
+}

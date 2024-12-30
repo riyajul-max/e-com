@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <section class="categories">
+        <div class="container">
+            <h2>Categories</h2>
+            <div class="con-box" id="men">
+                <div class="con-item men" onclick=" filterCategory('men\'s clothing')">
+                    <a href="#">Men's Clothings</a>
+                    <img src="images/men2.png" alt="men">
+                </div>
+                <div class="con-item" id="elec" onclick=" filterCategory('electronics')">
+                    <a href="#">Electronics</a>
+                    <img src="images/el.png" alt="">
+                </div>
+                <div class="con-item" id="women" onclick=" filterCategory('women\'s clothing')">
+                    <a href="#">Women’s Clothings</a>
+                    <img src="images/wopng.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="banner">
+        <div class="container">
+            <div class="banner-box">
+                <div class="logo-box">
+                    <div class="mens-cloth">
+                        <img src="images/men-.jpg" alt="">
+                    </div>
+                    <div class="electronics">
+                        <img src="images/el.jpg" alt="">
+                    </div>
+                    <div class="women-cloth">
+                        <img src="images/women.jpg" alt="">
+                    </div>
+
+                </div>
+                <div class="slider-box">
+                    <div class="slider fade">
+                        <div class="number-text">1/3</div>
+                        <img src="images/banner11.jpg" alt="">
+                        <div class="main-text">
+                            <h1>Discover Your Style with Trendy Treasure - Men’s Fashion Redefined</h1>
+                           
+                            <a href="#">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="slider fade">
+                        <div class="number-text">2/3</div>
+                        <img src="images/electronic3.jpg" alt="">
+                        <div class="main-text">
+                            <h1 class="e-headings">Stay Ahead with Trendy Treasure - Innovative Electronics for Every Lifestyle</h1>
+                            <a href="#">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="slider fade">
+                        <div class="number-text">3/3</div>
+                        <img src="images/women-banner.jpg" alt="">
+                        <div class="main-text">
+                            <h1 class="headings">Elevate Your Look with Trendy Treasure - Women’s Fashion Essentials</h1>
+                            <a href="#">Shop Now</a>
+                        </div>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <div class="container">
+            <div class="fe-box">
+             
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="container">
+            <div class="footer-box">
+                <div>
+                    <h2>Get to Know Us</h2>
+                    <a href="#">About Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+                <div>
+                    <h2>Follow Us</h2>
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+                <div>
+                    <h2>Contact</h2>
+                    <p><span>Address:</span>562 Wellington Road, Street 32,1<br>
+                        San Francisco</p>
+                    <p><span>Phone:</span> +01 2222 365 /(+91) 01 2345 6589</p>
+                    <p><span>Hours:</span> 10:00-18:00, Mon - Sat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-bottom">
+        <p>Copyright &copy; 2024 Trendy Treasures</p>
+    </section>
+
+
+
+    
+    <script src="JS/navbar.js"></script>
+    <script src="JS/script.js"></script>
+    <script src="JS/shop.js"></script>
+</body>
+</html>

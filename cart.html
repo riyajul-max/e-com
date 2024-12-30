@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/cart.css">
+</head>
+<body>
+
+    <div id="navbar"></div>
+    <section class="cart">
+        <div class="cart-box">
+            <div class="cart-item" data-index="0">
+                <div class="cart-image">
+                    <img src="image_url" alt="Product Title">
+                </div>
+                <div class="cart-info">
+                    <h4>Product Title</h4>
+                    <p>Price: $24.99</p>
+                    <p>Total: $49.98</p>
+                    <label>Quantity:</label>
+                    <input type="number" class="quantity" min="1" value="2">
+                    <button class="delete-button">Delete</button>
+                </div>
+            </div>
+            <div class="cart-item" data-index="1">
+                <div class="cart-image">
+                    <img src="image_url" alt="Another Product">
+                </div>
+                <div class="cart-info">
+                    <h4>Another Product</h4>
+                    <p>Price: $14.99</p>
+                    <p>Total: $14.99</p>
+                    <label>Quantity:</label>
+                    <input type="number" class="quantity" min="1" value="1">
+                    <button class="delete-button">Delete</button>
+                </div>
+            </div>
+        </div>
+        <h3>Total Price: $64.97</h3>
+        <button id="clear-cart">Clear Cart</button>
+    </section>
+    
+    
+    <script>
+        // Function to display cart items
+function displayCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length === 0) {
+        document.body.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+    }
+
+    let cartContent = `
+     <div id="navbar"></div>
+        <section class="cart">
+            <div class="cart-box">
+                ${cart.map((item, index) => `
+                    <div class="cart-item" data-index="${index}">
+                        <div class="cart-image">
+                            <img src="${item.image}" alt="${item.title}">
+                        </div>
+                        <div class="cart-info">
+                            <h4>${item.title}</h4>
+                            <p id="price">Price: $${item.price}</p>
+                            <p id="subtotal">SubTotal: $<span class="item-total">${(item.price * item.quantity).toFixed(2)}</span></p>
+                            <label>Quantity:</label>
+                            <input type="number" class="quantity" min="1" value="${item.quantity}">
+                            <button class="delete-button">Delete</button>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="bottom">
+            <button id="clear-cart">Clear Cart</button>
+            <div id="div">
+            <h3>Total Price: $<span id="total-price">${calculateTotalPrice(cart).toFixed(2)}</span></h3>
+            <button id="buy">Buy Now</button>
+            </div>
+            </div>
+        </section>`;
+
+    document.body.innerHTML = cartContent;
+
+    // Add event listeners for quantity changes and delete buttons
+    document.querySelectorAll('.quantity').forEach((input, index) => {
+        input.addEventListener('change', (e) => updateQuantity(index, e.target.value));
+    });
+
+    document.querySelectorAll('.delete-button').forEach((button, index) => {
+        button.addEventListener('click', () => deleteItem(index));
+    });
+
+    // Clear cart button
+    document.getElementById('clear-cart').addEventListener('click', clearCart);
+}
+
+// Function to calculate total price
+function calculateTotalPrice(cart) {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+}
+
+// Function to update quantity
+function updateQuantity(index, newQuantity) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const quantity = Math.max(parseInt(newQuantity, 10), 1); // Ensure quantity is at least 1
+    cart[index].quantity = quantity;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+}
+
+// Function to delete an item from the cart
+function deleteItem(index) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1); // Remove item from cart
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+}
+
+// Function to clear the cart
+function clearCart() {
+    localStorage.removeItem('cart');
+    displayCart();
+}
+
+// Display the cart when the page loads
+displayCart();
+
+    </script>
+</body>
+</html>
